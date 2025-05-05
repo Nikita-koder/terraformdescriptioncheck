@@ -13,6 +13,10 @@ var Analyzer = &analysis.Analyzer{
 	Run:  run,
 }
 
+func NewAnalyzer() *analysis.Analyzer {
+	return Analyzer
+}
+
 func run(pass *analysis.Pass) (interface{}, error) {
 	ast.Inspect(pass.Files[0], func(n ast.Node) bool {
 		composite, ok := n.(*ast.CompositeLit)
